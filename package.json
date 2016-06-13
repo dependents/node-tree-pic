@@ -1,0 +1,47 @@
+{
+  "name": "tree-pic",
+  "version": "1.0.0",
+  "description": "Generate a picture of a file's dependency tree",
+  "main": "index.js",
+  "scripts": {
+    "test": "jscs index.js test/test.js && ./node_modules/.bin/mocha --compilers js:babel/register test/test.js",
+    "debug-test": "DEBUG=*,-mocha:*,-babel,-parse npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dependents/node-tree-pic.git"
+  },
+  "keywords": [
+    "tree",
+    "dependency",
+    "image",
+    "ast",
+    "file",
+    "png",
+    "es6",
+    "amd",
+    "commonjs",
+    "sass"
+  ],
+  "author": "Joel Kemp <joel@mrjoelkemp.com> (http://www.mrjoelkemp.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dependents/node-tree-pic/issues"
+  },
+  "homepage": "https://github.com/dependents/node-tree-pic#readme",
+  "dependencies": {
+    "debug": "~2.2.0",
+    "dependency-tree": "~5.2.0",
+    "graphviz": "0.0.8",
+    "q": "~1.4.1"
+  },
+  "devDependencies": {
+    "babel": "~5.8.38",
+    "file-exists": "~1.0.0",
+    "jscs": "~2.11.0",
+    "jscs-preset-mrjoelkemp": "~1.0.0",
+    "mocha": "~2.5.3",
+    "os-tmpdir": "~1.0.1",
+    "rewire": "~2.5.1"
+  }
+}
