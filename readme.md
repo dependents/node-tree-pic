@@ -8,7 +8,7 @@
 
 ### Graphviz dependency
 
-In order to generate the image, you need to have Graphviz installed.
+In order to generate the output image, you need to have Graphviz installed.
 
 ##### Mac OS X
 
