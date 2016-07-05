@@ -4,6 +4,7 @@ import tmpDir from 'os-tmpdir';
 import fs from 'fs';
 import rewire from 'rewire';
 import q from 'q';
+import sinon from 'sinon';
 
 const treePic = rewire('../');
 
@@ -90,6 +91,31 @@ describe('tree-pic', function() {
         imagePath: desiredPath
       }).then(imagePath => {
         assert.ok(fileExists(imagePath));
+      });
+    });
+
+    it('does not include node_modules files in the tree', function() {
+      const filename = `${this._directory}/index.js`;
+      const desiredPath = `${this._tmpDirectory}/sweeter.png`;
+
+      const generateGraph = treePic.__get__('generateGraph');
+      const spy = sinon.spy();
+
+      const wrapped = function() {
+        spy.apply(null, arguments);
+        return generateGraph.apply(null, arguments);
+      };
+
+      const revert = treePic.__set__('generateGraph', wrapped);
+
+      return treePic({
+        filename,
+        directory: this._directory,
+        imagePath: desiredPath
+      }).then(imagePath => {
+        const tree = spy.args[0];
+        assert.equal(JSON.stringify(tree).indexOf('node_modules'), -1);
+        revert();
       });
     });
   });
