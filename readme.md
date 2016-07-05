@@ -6,6 +6,8 @@
 
 *Heavily inspired by [pahen/madge](https://github.com/pahen/madge).*
 
+![](http://i.imgur.com/VFA25n7.png)
+
 ### Graphviz dependency
 
 In order to generate the output image, you need to have Graphviz installed.
